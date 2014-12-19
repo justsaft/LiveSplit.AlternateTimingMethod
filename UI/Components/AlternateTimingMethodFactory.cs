@@ -36,14 +36,14 @@ namespace LiveSplit.UI.Components
             get { return ComponentName; }
         }
 
-        public string XMLURL
+        public string UpdateURL
         {
             get { return "https://raw.githubusercontent.com/dalet/LiveSplit.AlternateTimingMethod/master/"; }
         }
 
-        public string UpdateURL
+        public string XMLURL
         {
-            get { return "Update/update.LiveSplit.AlternateTimingMethod.xml"; }
+            get { return this.UpdateURL + "Update/update.LiveSplit.AlternateTimingMethod.xml"; }
         }
 
         public Version Version
