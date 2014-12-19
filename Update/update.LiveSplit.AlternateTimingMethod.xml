@@ -1,4 +1,14 @@
 <updates>
+    <update version="1.1.0">
+        <files>
+            <file path="Update/LiveSplit.AlternateTimingMethod.dll" status="changed"/>
+        </files>
+        <changelog>
+            <change>
+                Added text customization.
+            </change>
+        </changelog>
+    </update>
     <update version="1.0.0">
         <files>
             <file path="Update/LiveSplit.AlternateTimingMethod.dll" status="changed"/>
