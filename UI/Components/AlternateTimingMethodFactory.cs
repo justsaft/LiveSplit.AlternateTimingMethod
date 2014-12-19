@@ -43,7 +43,7 @@ namespace LiveSplit.UI.Components
 
         public string XMLURL
         {
-            get { return this.UpdateURL + "Update/update.LiveSplit.AlternateTimingMethod.xml"; }
+            get { return this.UpdateURL + "Components/update.LiveSplit.AlternateTimingMethod.xml"; }
         }
 
         public Version Version
