@@ -136,7 +136,7 @@ namespace LiveSplit.UI.Components
         public void Update(IInvalidator invalidator, LiveSplitState state, float width, float height, LayoutMode mode)
         {
             var componentName = state.CurrentTimingMethod == TimingMethod.GameTime
-                ? Settings.GameTimeText : Settings.RealTimeText;
+                ? Settings.RealTimeText : Settings.GameTimeText;
             InternalComponent.LongestString = componentName;
             InternalComponent.NameLabel.Text = componentName;
             InternalComponent.TimeValue = state.CurrentTime[state.CurrentTimingMethod == TimingMethod.GameTime
