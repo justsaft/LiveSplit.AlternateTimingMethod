@@ -70,8 +70,9 @@
       <DependentUpon>AlternateTimingMethodSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Update\" />
+    <Content Include="Update\update.LiveSplit.AlternateTimingMethod.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
