@@ -19,6 +19,8 @@ namespace LiveSplit.UI.Components
 {
     public partial class AlternateTimingMethodSettings : UserControl
     {
+        public String RealTimeText { get; set; }
+        public String GameTimeText { get; set; }
         public Color TextColor { get; set; }
         public bool OverrideTextColor { get; set; }
         public Color TimeColor { get; set; }
@@ -37,6 +39,9 @@ namespace LiveSplit.UI.Components
         public bool Display2Rows { get; set; }
         public LayoutMode Mode { get; set; }
 
+        public const string DEFAULT_REALTIMETEXT = "Real Time";
+        public const string DEFAULT_GAMETIMETEXT = "Game Time";
+
         public AlternateTimingMethodSettings()
         {
             InitializeComponent();
@@ -50,7 +55,11 @@ namespace LiveSplit.UI.Components
             BackgroundColor2 = Color.Transparent;
             BackgroundGradient = GradientType.Plain;
             Display2Rows = false;
+            RealTimeText = DEFAULT_REALTIMETEXT;
+            GameTimeText = DEFAULT_GAMETIMETEXT;
 
+            txtRT.DataBindings.Add("Text", this, "RealTimeText", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtGT.DataBindings.Add("Text", this, "GameTimeText", false, DataSourceUpdateMode.OnPropertyChanged);
             chkOverrideTextColor.DataBindings.Add("Checked", this, "OverrideTextColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnTextColor.DataBindings.Add("BackColor", this, "TextColor", false, DataSourceUpdateMode.OnPropertyChanged);
             chkOverrideTimeColor.DataBindings.Add("Checked", this, "OverrideTimeColor", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -141,6 +150,8 @@ namespace LiveSplit.UI.Components
                 version = Version.Parse(element["Version"].InnerText);
             else
                 version = new Version(1, 0, 0, 0);
+            RealTimeText = (element["RealTimeText"] != null) ? element["RealTimeText"].InnerText : DEFAULT_REALTIMETEXT;
+            GameTimeText = (element["GameTimeText"] != null) ? element["GameTimeText"].InnerText : DEFAULT_GAMETIMETEXT;
             TextColor = ParseColor(element["TextColor"]);
             OverrideTextColor = Boolean.Parse(element["OverrideTextColor"].InnerText);
             TimeColor = ParseColor(element["TimeColor"]);
@@ -155,6 +166,8 @@ namespace LiveSplit.UI.Components
         {
             var parent = document.CreateElement("Settings");
             parent.AppendChild(ToElement(document, "Version", Assembly.GetExecutingAssembly().GetName().Version.ToString(3)));
+            parent.AppendChild(ToElement(document, "RealTimeText", RealTimeText));
+            parent.AppendChild(ToElement(document, "GameTimeText", GameTimeText));
             parent.AppendChild(ToElement(document, TextColor, "TextColor"));
             parent.AppendChild(ToElement(document, "OverrideTextColor", OverrideTextColor));
             parent.AppendChild(ToElement(document, TimeColor, "TimeColor"));
