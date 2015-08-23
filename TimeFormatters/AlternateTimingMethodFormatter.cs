@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LiveSplit.TimeFormatters;
+using System;
 
-namespace LiveSplit.TimeFormatters
+namespace LiveSplit.AlternateTimingMethod
 {
-    class PossibleTimeSaveFormatter : ITimeFormatter
+    class AlternateTimingMethodFormatter : ITimeFormatter
     {
         public TimeAccuracy Accuracy { get; set; }
 
@@ -26,7 +23,6 @@ namespace LiveSplit.TimeFormatters
                     return timeString.Substring(0, timeString.Length - 3);
 
             }
-                
         }
     }
 }

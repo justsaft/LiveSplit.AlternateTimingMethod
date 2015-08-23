@@ -1,13 +1,9 @@
-﻿using LiveSplit.Model;
-using LiveSplit.TimeFormatters;
-using LiveSplit.UI.Components;
+﻿using LiveSplit.AlternateTimingMethod;
+using LiveSplit.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LiveSplit.UI.Components
@@ -16,7 +12,7 @@ namespace LiveSplit.UI.Components
     {
         protected InfoTimeComponent InternalComponent { get; set; }
         public AlternateTimingMethodSettings Settings { get; set; }
-        private PossibleTimeSaveFormatter Formatter { get; set; }
+        private AlternateTimingMethodFormatter Formatter { get; set; }
 
         public GraphicsCache Cache { get; set; }
 
@@ -32,7 +28,7 @@ namespace LiveSplit.UI.Components
 
         public AlternateTimingMethod(LiveSplitState state)
         {
-            Formatter = new PossibleTimeSaveFormatter();
+            Formatter = new AlternateTimingMethodFormatter();
             InternalComponent = new InfoTimeComponent(null, null, Formatter);
             Cache = new GraphicsCache();
             Settings = new AlternateTimingMethodSettings()
@@ -45,7 +41,7 @@ namespace LiveSplit.UI.Components
         {
             InternalComponent.DisplayTwoRows = Settings.Display2Rows;
 
-            InternalComponent.NameLabel.HasShadow 
+            InternalComponent.NameLabel.HasShadow
                 = InternalComponent.ValueLabel.HasShadow
                 = state.LayoutSettings.DropShadows;
 
