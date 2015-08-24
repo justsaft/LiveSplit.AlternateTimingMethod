@@ -5,7 +5,7 @@
         </files>
         <changelog>
             <change>
-                LiveSplit 1.6 compatiblity.
+                Fixed a graphical problem in the settings.
             </change>
         </changelog>
     </update>
